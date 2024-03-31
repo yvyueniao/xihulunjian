@@ -2955,7 +2955,41 @@
         })
         const plugins = aes.use([AESPluginPV, AESPluginEvent, AESPluginAPI, AESPluginResourceError, AESPluginPerf, AESPluginEventTiming])
     </script>
-
+<!-- 登录弹窗 -->
+<div class="aliyun-login-component-wrapper" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
+    <!-- 新增的关闭按钮 -->
+    <a role="button" aria-label="关闭" class="close-button" onclick="hideLoginPopup()" style="position: absolute; top: 10px; left: 10px;"><i class="fl-icon fl-icon-close fl-medium fl-dialog-close-icon">关闭</i></a>
+    <img src="images/ewm.png" class="mc-2022yunqi-nav-pc-container-content-logo" style="height: 200px; position: absolute; top: 190px; left: 85px;" >
+    
+    <!-- 这里放置登录弹窗的内容 -->
+    <div class="fl-overlay-wrapper opened">
+      <div class="fl-overlay-backdrop" data-spm-anchor-id="5176.28410974.0.i0.33ce1c8eE5jM4P"></div>
+      <div role="dialog" aria-modal="true" class="fl-dialog fl-closeable fl-overlay-inner aliyun-login-wrapper" aria-hidden="false" style="display: block; left: 300px; top: 110px;">
+        <div class="fl-dialog-body">
+          <div id="aliyun-login-box-wrapper" style="height: 518px; width: 782px;">
+            <iframe class="aliyun-login-component-wrapper" id="aliyun-login-box" title="login" src="https://account.aliyun.com/login/mini_login_embedder.htm?version=0.0.28&amp;tenantName=website&amp;type=one_login&amp;uuid=1a25682b-3d7e-4898-bcbf-848f25ea6ecb&amp;oauth_callback=https%3A%2F%2Fyunqi.aliyun.com%2F%3Fspm%3D5176.28525946.J_5651694710.2.76bcc76eHbCNUg" style="border: none; width: 100%; height: 100%;" data-spm-anchor-id="5176.28410974.0.i2.33ce1c8eE5jM4P" data-spm-act-id="5176.28410974.0.i2.33ce1c8eE5jM4P"></iframe>
+          </div>
+        </div>
+        <a role="button" aria-label="关闭" class="fl-dialog-close" onclick="hideLoginPopup()"><i class="fl-icon fl-icon-close fl-medium fl-dialog-close-icon"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JavaScript 代码 -->
+  <script>
+    var loginBtn = document.querySelector('.mc-2022yunqi-nav-pc-container-content-menu-loginBtn');
+  
+  // 监听登录按钮的点击事件
+  loginBtn.addEventListener('click', function() {
+    // 显示登录弹窗
+    document.querySelector('.aliyun-login-component-wrapper').style.display = 'block';
+  });
+  
+    function hideLoginPopup() {
+      // 隐藏登录弹窗
+      document.querySelector('.aliyun-login-component-wrapper').style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>
